@@ -13,7 +13,7 @@
                     DASHBOARD
                 </p>
                 <h2 class="primary-header ">
-                    My Bootcamps
+                    BOOTCAMPS KU
                 </h2>
             </div>
         </div>
@@ -29,7 +29,7 @@
                                 <strong>SI HOBI EXPLORER</strong>
                             </p>
                             <p>
-                                <?= date('D , Y-m-d'); ?>
+                                <?= date('Y F d, D'); ?>
                             </p>
                         </td>
                         <td>
