@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('welcome'); })->name('menu_utama');
-Route::get('/masuk', function () { return view('login'); })->name('masuk');
-Route::get('/daftar', function () { return view('register'); })->name('daftar');
 
 Route::get('/checkout', function () { return view('checkout'); })->name('checkout');
 Route::get('/checkout/success', function () { return view('success_checkout'); })->name('selesai_checkout');
 
-Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
