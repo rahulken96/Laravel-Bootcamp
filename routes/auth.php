@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/daftar', function () { return view('register'); })->middleware('guest')->name('daftar');
@@ -15,7 +16,7 @@ Route::get('/daftar', function () { return view('register'); })->middleware('gue
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
 
-Route::get('/masuk', function () { return view('login'); })->middleware('guest')->name('masuk');
+Route::get('/masuk', [UserController::class,'masuk'])->middleware('guest')->name('masuk');
 
 Route::get('/login/admin', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
@@ -60,6 +61,6 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
     ->middleware('auth');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+Route::post('/keluar', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
-    ->name('logout');
+    ->name('keluar');

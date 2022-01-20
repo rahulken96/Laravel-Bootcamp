@@ -20,6 +20,7 @@
 <body>
 
     @include('components.navbar-component')
+    {{-- @include('layouts.navigation') --}}
 
     @yield('content')
 

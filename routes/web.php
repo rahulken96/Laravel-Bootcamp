@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,7 @@ Route::get('/checkout/success', function () { return view('success_checkout'); }
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+/* Socialite Routes */
+Route::get('/masuk-google', [UserController::class,'google'])->name('masuk_google');
+Route::get('/auth/google/callback', [UserController::class,'handleProviderGoogle']);

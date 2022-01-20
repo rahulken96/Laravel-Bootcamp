@@ -22,7 +22,7 @@
             Karena Besok Menjadi Tidak Akan Pernah
         </p>
         <p>
-            <a class="btn btn-border btn-google-login" href="#">
+            <a class="btn btn-border btn-google-login" href="{{ route('masuk_google') }}">
                 <img src="{{ asset('assets/images/ic_google.svg') }}" class="icon" alt=""> Masuk dengan Google
             </a>
         </p>
