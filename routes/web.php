@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('welcome'); })->name('menu_utama');
 
-Route::get('/checkout', function () { return view('checkout'); })->name('checkout');
-Route::get('/checkout/success', function () { return view('success_checkout'); })->name('selesai_checkout');
+//Checkout
+Route::get('checkout/sukses', [CheckoutController::class, 'sukses'])->name('checkout_sukses');
+Route::get('checkout/{camp:slug}', [CheckoutController::class, 'create'])->name('checkout');
+Route::post('checkout/{camp}', [CheckoutController::class, 'store'])->name('selesai_checkout');
 
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth'])->name('dashboard');
 

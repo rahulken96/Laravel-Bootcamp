@@ -54,6 +54,7 @@ class CheckoutController extends Controller
 
         //create checkout data
         $checkout = Checkout::create($data);
+        // dd($checkout);
 
         return redirect(route('checkout_sukses'));
     }

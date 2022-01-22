@@ -18,4 +18,15 @@ class Checkout extends Model
         'cvc',
         'is_paid'
     ];
+
+    // public function setExpiredAttribut($value)
+    // {
+    //     $this->attributes['expired'] = date('Y-m-t', strtotime($value));
+    // }
+
+    // public function setCVCAttribut($value)
+    // {
+    //     $this->attributes['cvc']->skip($value)->take(3)->get();
+    // }
+
 }
