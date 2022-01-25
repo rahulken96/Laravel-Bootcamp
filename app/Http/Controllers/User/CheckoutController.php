@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Camp;
 use App\Models\Checkout;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\VarDumper;
@@ -28,7 +29,7 @@ class CheckoutController extends Controller
      */
     public function create(Camp $camp)
     {
-        return view('checkout',['camp' => $camp]);
+        return view('checkout.create',['camp' => $camp]);
     }
 
     /**
@@ -54,7 +55,6 @@ class CheckoutController extends Controller
 
         //create checkout data
         $checkout = Checkout::create($data);
-        // dd($checkout);
 
         return redirect(route('checkout_sukses'));
     }
@@ -106,6 +106,6 @@ class CheckoutController extends Controller
 
     public function sukses()
     {
-        return view('success_checkout');
+        return view('checkout.success');
     }
 }

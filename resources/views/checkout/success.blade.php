@@ -1,7 +1,16 @@
 @extends('layouts.navbar')
 
 @section('title')
-<title>Berhasil Checkout</title>
+    <title>Berhasil Checkout</title>
+@endsection
+
+@section('content-navbar')
+    @auth()
+        <div class="user-logged nav-item">
+            {{ Auth::user()->name }}
+            <img src="{{Auth::user()->image}}" class="user-photo" alt="">
+        </div>
+    @endauth
 @endsection
 
 @section('content')

@@ -37,15 +37,15 @@
                             @csrf
                             <div class="mb-4">
                                 <label class="form-label">Nama Lengkap</label>
-                                <input name="name" type="text" class="form-control" required>
+                                <input name="name" type="text" class="form-control" value="{{ Auth::user()->name }}" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Alamat Email</label>
-                                <input name="email" type="email" class="form-control" required>
+                                <input name="email" type="email" class="form-control" value="{{ Auth::user()->email }}" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Pekerjaan</label>
-                                <input name="occupation" type="text" class="form-control" required>
+                                <input name="occupation" type="text" class="form-control" value="{{ Auth::user()->occupation }}" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Nomor Kartu</label>
