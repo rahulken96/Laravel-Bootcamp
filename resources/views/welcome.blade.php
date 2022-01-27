@@ -172,22 +172,22 @@
     </div>
 </section>
 
-<section class="pricing">
+<section class="pricing" id="kelas">
     <div class="container">
         <div class="row pb-70">
             <div class="col-lg-5 col-12 header-wrap copywriting">
                 <p class="story">
-                    GOOD INVESTMENT
+                    INVESTASI YANG BAIK
                 </p>
                 <h2 class="primary-header text-white">
-                    Start Your Journey
+                    Mulai Perjalanan Anda
                 </h2>
                 <p class="support">
-                    Learn how to speaking in public to demonstrate your <br> final project and receive the important feedbacks
+                    Pelajari cara berbicara di depan umum untuk mendemonstrasikan tugas akhir dan menerima <br> feedback penting.
                 </p>
                 <p class="mt-5">
-                    <a href="#" class="btn btn-master btn-thirdty me-3">
-                        View Syllabus
+                    <a href="#" class="btn btn-master btn-secondary me-3 text-green">
+                        Lihat Silabus
                     </a>
                 </p>
             </div>
@@ -198,13 +198,16 @@
                             <p class="story text-center">
                                 SI HOBI EXPLORER
                             </p>
+                            <h4 class="primary-header text-md-center">
+                                Laravel 8
+                            </h4>
                             <h3 class="price text-md-center">
-                                RP 50K
+                                RP 50 K
                             </h3>
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Professional TechKit
+                                    TechKit Profesional
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -212,7 +215,7 @@
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Offline Video Course
+                                    Video Kursus Offline
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -228,7 +231,7 @@
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Final Project Certificate
+                                    Sertifikat Proyek Akhir
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -236,7 +239,7 @@
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Website Builder
+                                    Pembuat Situs Web
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -244,7 +247,7 @@
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Premium Design Kit
+                                    Kit Desain Premium
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -252,13 +255,13 @@
                             <div class="item-benefit-pricing">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Future Job Opportinity
+                                    Peluang Kerja Masa Depan
                                 </p>
                                 <div class="clear"></div>
                             </div>
                             <p>
                                 <a href="{{ route('checkout','si-hobi-explorer') }}" class="btn btn-master btn-primary w-100 mt-3">
-                                    Take This Plan
+                                    Ambil Langkah Ini
                                 </a>
                             </p>
                         </div>
@@ -268,13 +271,16 @@
                             <p class="story text-center">
                                 KEBERUNTUNGAN PEMULA
                             </p>
+                            <h4 class="primary-header text-md-center">
+                                PHP Native
+                            </h4>
                             <h1 class="price text-center">
-                                RP 25K
+                                RP 25 K
                             </h1>
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Offline Course Videos
+                                    Video Kursus Offline
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -290,7 +296,7 @@
                             <div class="item-benefit-pricing mb-4">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Final Project Certificate
+                                    Sertifikat Proyek Akhir
                                 </p>
                                 <div class="clear"></div>
                                 <div class="divider"></div>
@@ -298,13 +304,13 @@
                             <div class="item-benefit-pricing">
                                 <img src="{{ asset('assets/images/ic_check.svg') }}" alt="">
                                 <p>
-                                    Future Job Opportinity
+                                    Peluang Kerja Masa Depan
                                 </p>
                                 <div class="clear"></div>
                             </div>
                             <p>
                                 <a href="{{ route('checkout','keberuntungan-pemula') }}" class="btn btn-master btn-secondary w-100 mt-3">
-                                    Start With This Plan
+                                    Mulai Langkah Ini
                                 </a>
                             </p>
                         </div>

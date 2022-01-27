@@ -141,8 +141,31 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'card_number' => [
+            'required' => 'Kolom Nomor Kartu wajib diisi.',
+            'numeric' => 'Harap mengisi dengan angka.',
+            'digits_between' => 'Kolom Nomor Kartu harus berisi 8 - 16 digits.',
+        ],
+        'cvc' => [
+            'required' => 'Kolom CVC wajib diisi.',
+            'numeric' => 'Harap mengisi dengan angka.',
+            'digits' => 'Kolom CVC harus berisi 3 digit.',
+        ],
+        'email' => [
+            'required' => 'Kolom Email wajib diisi.',
+            'email' => 'Harap mengisi dengan Email yang valid.',
+        ],
+        'expired' => [
+            'required' => 'Kolom Kedaluwarsa wajib diisi.',
+            'date' => 'Tanggal tidak valid.',
+            'date_format' => 'Tanggal tidak cocok dengan format yang ditentukan ( Contoh : :date ).',
+            'after_or_equal' => 'Tanggal kedaluwarsa harus sama dengan atau setelah :date.',
+        ],
+        'name' => [
+            'required' => 'Kolom Nama wajib diisi.',
+        ],
+        'occupation' => [
+            'required' => 'Kolom Pekerjaan wajib diisi.',
         ],
     ],
 
@@ -157,6 +180,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+    ],
 
 ];
