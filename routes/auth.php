@@ -11,9 +11,9 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/daftar', function () { return view('register'); })->middleware('guest')->name('daftar');
+Route::get('/daftar', function () { return view('auth.User.register'); })->middleware('guest')->name('daftar');
 
-Route::post('/register', [RegisteredUserController::class, 'store'])
+Route::post('/daftar/{user}', [RegisteredUserController::class, 'store'])
     ->middleware('guest');
 
 Route::get('/masuk', [UserController::class,'masuk'])->middleware('guest')->name('masuk');

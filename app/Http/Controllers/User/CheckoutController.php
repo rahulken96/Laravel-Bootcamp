@@ -4,10 +4,12 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\Checkout\Store;
+use App\Mail\Checkout\AfterCheckout;
 use App\Models\Camp;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -52,21 +54,25 @@ class CheckoutController extends Controller
      */
     public function store(Store $request, Camp $camp)
     {
-        //Mapping request data
+        // mapping request data
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $data['camp_id'] = $camp->id;
         $data['expired'] = date('Y-m-t', strtotime($data['expired']));
 
-        //Update user data
+        // update data user
         $user = Auth::user();
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->occupation = $data['occupation'];
         $user->save();
 
-        //create checkout data
+        // buat data checkout
         $checkout = Checkout::create($data);
+
+        // ngirim email
+        $userEmail = Auth::user()->email;
+        Mail::to($userEmail)->send(new AfterCheckout($checkout));
 
         return redirect(route('checkout_sukses'));
     }
@@ -120,4 +126,10 @@ class CheckoutController extends Controller
     {
         return view('checkout.success');
     }
+
+    public function tagihan(Checkout $checkout)
+    {
+        return json_encode($checkout);
+    }
+
 }

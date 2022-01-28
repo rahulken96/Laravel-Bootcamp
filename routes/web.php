@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 
     //User Dashboard Route
     Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
+    Route::get('/dashboard/checkout/tagihan/{checkout}', [CheckoutController::class, 'tagihan'] )->name('tagihan_checkout');
 
 });
 

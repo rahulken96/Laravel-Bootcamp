@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\User\AfterRegister;
 use App\Models\User;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
@@ -31,11 +33,24 @@ class UserController extends Controller
             'image' => $callback->getAvatar(),
         ];
 
-        $user = User::firstOrCreate(['email'=> $data['email']],$data);
-        Auth::login($user,true);
+        /* Pengambilan data email dengan Socialite Google */
+        // $user = User::firstOrCreate(['email'=> $data['email']],$data);
+
+        /* Pengambilan data email dengan notif email konfirmasi pendaftaran */
+        $userEmail = User::where('email',$data['email'])->first();
+
+        /* User belum login */
+        if (!$userEmail) {
+            $userEmail = User::create($data);
+            Mail::to($userEmail->email)->send(new AfterRegister($userEmail));
+        }
+
+        Auth::login($userEmail,true);
+
         return redirect(route('menu_utama'))->with('Success','Anda Berhasil Masuk !');
 
 
+        /* Coba - coba tentang Socialite */
         // $user = Socialite::driver('google')->user();
 
         // $token = $user->token;
