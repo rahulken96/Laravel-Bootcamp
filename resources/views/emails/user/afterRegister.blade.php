@@ -12,5 +12,5 @@ Masuk Ke LARACAMP
 @endcomponent
 
 Terimakasih,<br>
-{{ config('app.name') }}
+
 @endcomponent
