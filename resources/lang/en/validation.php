@@ -158,7 +158,7 @@ return [
         'expired' => [
             'required' => 'Kolom Kedaluwarsa wajib diisi.',
             'date' => 'Tanggal tidak valid.',
-            'date_format' => 'Tanggal tidak cocok dengan format yang ditentukan ( Contoh : :date ).',
+            'date_format' => 'Tanggal tidak cocok dengan format yang ditentukan ( Contoh :format ).',
             'after_or_equal' => 'Tanggal kedaluwarsa harus sama dengan atau setelah :date.',
         ],
         'name' => [

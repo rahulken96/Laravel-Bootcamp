@@ -18,11 +18,11 @@ Route::post('/daftar/{user}', [RegisteredUserController::class, 'store'])
 
 Route::get('/masuk', [UserController::class,'masuk'])->middleware('guest')->name('masuk');
 
-Route::get('/login/admin', [AuthenticatedSessionController::class, 'create'])
+Route::get('/masuk/admin', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login_admin');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+Route::post('/masuk', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest')
     ->name('login');
 

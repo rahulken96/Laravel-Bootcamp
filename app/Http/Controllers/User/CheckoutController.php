@@ -7,6 +7,7 @@ use App\Http\Requests\User\Checkout\Store;
 use App\Mail\Checkout\AfterCheckout;
 use App\Models\Camp;
 use App\Models\Checkout;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -38,7 +39,7 @@ class CheckoutController extends Controller
 
         if ($camp->TelahTerdaftar) {
             $request->session()->flash('error', "Anda telah terdaftar pada bootcamp {$camp->title}.");
-            return redirect(route('dashboard'));
+            return redirect(route('user.dashboard'));
         }
 
         return view('checkout.create',['camp' => $camp]);
@@ -67,8 +68,12 @@ class CheckoutController extends Controller
         $user->occupation = $data['occupation'];
         $user->save();
 
-        // buat data checkout
-        $checkout = Checkout::create($data);
+        // update / tambah data checkout
+        $checkout = Checkout::updateOrCreate([
+            'card_number' => $data['card_number'],
+            'expired' => $data['expired'],
+            'cvc' => $data['cvc'],
+        ],$data);
 
         // ngirim email
         $userEmail = Auth::user()->email;

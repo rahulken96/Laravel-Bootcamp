@@ -8,11 +8,11 @@
     @auth()
         <div class="d-flex user-logged nav-item dropdown no-arrow">
             <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                {{Auth::user()->name}}!
-                <img src="{{Auth::user()->image}}" class="user-photo" alt="">
+                {{Auth::user()->name}}
+                <img src="{{Auth::user()->image}}" class="user-photo" alt="" style="border-radius: 50%">
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                     <li>
-                        <a href="{{ route('dashboard') }}" class="dropdown-item">My Dashboard</a>
+                        <a href="{{ route('user.dashboard') }}" class="dropdown-item">My Dashboard</a>
                     </li>
                 </ul>
             </a>
@@ -83,7 +83,7 @@
                                 <div class="row">
                                     <div class="col-lg-7 col-12">
                                         <label class="form-label">Kedaluwarsa (expired)</label>
-                                        <input name="expired" type="month" class="form-control {{ $errors->has('expired') ? 'is-invalid' : '' }} " placeholder="Januari-2021" value="{{ old('expired') ?: '' }}">
+                                        <input name="expired" type="month" class="form-control {{ $errors->has('expired') ? 'is-invalid' : '' }} " placeholder="Januari-2022" value="{{ old('expired') ?: '' }}">
                                 @if ($errors->has('expired'))
                                     <p class="text-danger">{{$errors->first('expired')}}</p>
                                 @endif

@@ -49,18 +49,5 @@ class UserController extends Controller
 
         return redirect(route('menu_utama'))->with('Success','Anda Berhasil Masuk !');
 
-
-        /* Coba - coba tentang Socialite */
-        // $user = Socialite::driver('google')->user();
-
-        // $token = $user->token;
-        // var_dump($token);
-        // echo "<br>";
-        // var_dump($user->getName());
-        // echo "<br>";
-        // var_dump($user->getEmail());
-        // "<br>";
-
     }
-
 }

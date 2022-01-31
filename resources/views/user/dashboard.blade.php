@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row my-5">
-            @include('components.alert')
+            @include('components.alerts.error')
             <table class="table">
                 <tbody>
                     @forelse ($checkout as $ch)
@@ -46,14 +46,14 @@
                         </td>
                         <td>
                             <a href='https://wa.me/62895342427976?text=Hi min, saya ingin konfirmasi pembayaran tentang kelas "{{ $ch->Camp->title }}"' class="btn btn-primary" target="_blank">
-                                Kontak Bantuan
+                                Konfirmasi Pembayaran
                             </a>
                         </td>
                     </tr>
                     @empty
-                    <tr>
-                        <td colspan="5">Tidak ada Data !</td>
-                    </tr>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong >Tidak Ada Data !</strong>
+                    </div>
                     @endforelse
                 </tbody>
             </table>

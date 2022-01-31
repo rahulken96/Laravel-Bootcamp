@@ -5,8 +5,8 @@ Hi {{ $checkout->User->name }},
 <br>
 Terima kasih sudah mendaftar di Camp <b> {{ $checkout->Camp->title }} </b>
 
-@component('mail::button', ['url' => route('tagihan_checkout',$checkout->id)])
-Tagihan Ku
+@component('mail::button', ['url' => route('user.dashboard')])
+Dashboard Ku
 @endcomponent
 
 Terimakasih,<br>
