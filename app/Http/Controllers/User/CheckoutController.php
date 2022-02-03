@@ -79,18 +79,15 @@ class CheckoutController extends Controller
         $user->save();
 
         // update / tambah data checkout
-        $checkout = Checkout::updateOrCreate([
-            'card_number' => $data['card_number'],
-            'expired' => $data['expired'],
-            'cvc' => $data['cvc'],
-        ], $data);
+        // $checkout = Checkout::create($data);
+        $checkout = Checkout::updateOrCreate($data);
 
         // snap Midtrans
         $this->SnapMidtrans($checkout);
 
         // ngirim email
         $userEmail = Auth::user()->email;
-        // Mail::to($userEmail)->send(new AfterCheckout($checkout));
+        Mail::to($userEmail)->send(new AfterCheckout($checkout));
 
         return redirect(route('checkout_sukses'));
     }
