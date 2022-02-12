@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="{{ route('menu_utama') }}">
-            <img src="" alt="LARACAMP">
+            <img src="{{ asset('assets/images/logo_laracamp.png') }}" alt="LARACAMP" title="Coding icons created by Kiranshastry - Flaticon" style="max-height: 20%">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -145,6 +145,22 @@ return [
             'required' => 'Kolom Alamat wajib diisi.',
             'string' => 'Harap mengisi dengan huruf.'
         ],
+        'email' => [
+            'required' => 'Kolom Email wajib diisi.',
+            'email' => 'Harap mengisi dengan Email yang valid.',
+        ],
+        'name' => [
+            'required' => 'Kolom Nama wajib diisi.',
+        ],
+        'occupation' => [
+            'required' => 'Kolom Pekerjaan wajib diisi.',
+            'string' => 'Harap mengisi dengan huruf.'
+        ],
+        'phone' => [
+            'required' => 'Kolom Tlpn / No HP wajib diisi.',
+            'string' => 'Harap mengisi dengan Angka.',
+            'digits_between' => 'Kolom Tlpn /  harus berisi 12 - 16 digits.'
+        ],
         // 'card_number' => [
         //     'required' => 'Kolom Nomor Kartu wajib diisi.',
         //     'numeric' => 'Harap mengisi dengan angka.',
@@ -155,27 +171,12 @@ return [
         //     'numeric' => 'Harap mengisi dengan angka.',
         //     'digits' => 'Kolom CVC harus berisi 3 digit.',
         // ],
-        'email' => [
-            'required' => 'Kolom Email wajib diisi.',
-            'email' => 'Harap mengisi dengan Email yang valid.',
-        ],
         // 'expired' => [
         //     'required' => 'Kolom Kedaluwarsa wajib diisi.',
         //     'date' => 'Tanggal tidak valid.',
         //     'date_format' => 'Tanggal tidak cocok dengan format yang ditentukan ( Contoh :format ).',
         //     'after_or_equal' => 'Tanggal kedaluwarsa harus sama dengan atau setelah :date.',
         // ],
-        'name' => [
-            'required' => 'Kolom Nama wajib diisi.',
-        ],
-        'occupation' => [
-            'required' => 'Kolom Pekerjaan wajib diisi.',
-            'string' => 'Harap mengisi dengan huruf.'
-        ],
-        'phone' => [
-            'required' => 'Kolom Tlpn / No HP wajib diisi.',
-            'string' => 'Harap mengisi dengan Angka.'
-        ],
     ],
 
     /*

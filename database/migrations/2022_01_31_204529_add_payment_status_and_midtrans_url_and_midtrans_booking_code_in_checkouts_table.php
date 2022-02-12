@@ -14,11 +14,11 @@ class AddPaymentStatusAndMidtransUrlAndMidtransBookingCodeInCheckoutsTable exten
     public function up()
     {
         Schema::table('checkouts', function (Blueprint $table) {
-            $table->after('camp_id', function ($table) {
-                $table->string('payment_status', 100)->default('Menunggu');
-                $table->string('midtrans_url')->nullable();
-                $table->string('midtrans_booking_code')->nullable();
-            });
+            $table->string('payment_status', 100)->default('Menunggu')->after('camp_id');
+            $table->string('midtrans_url')->nullable()->after('payment_status');
+            $table->string('midtrans_booking_code')->nullable()->after('midtrans_url');
+            // $table->after('camp_id', function ($table) {
+            // });
         });
     }
 

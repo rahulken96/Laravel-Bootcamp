@@ -8,7 +8,7 @@
     @auth()
         <div class="user-logged nav-item">
             {{ Auth::user()->name }}
-            <img src="{{Auth::user()->image}}" class="user-photo" alt="">
+            <img src="{{Auth::user()->image}}" class="user-photo" alt="" style="border-radius: 50%">
         </div>
     @endauth
 @endsection

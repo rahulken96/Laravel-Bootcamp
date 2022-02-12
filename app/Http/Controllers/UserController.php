@@ -42,7 +42,7 @@ class UserController extends Controller
         /* User belum login */
         if (!$userEmail) {
             $userEmail = User::create($data);
-            Mail::to($userEmail->email)->send(new AfterRegister($userEmail));
+            // Mail::to($userEmail->email)->send(new AfterRegister($userEmail));
         }
 
         Auth::login($userEmail,true);

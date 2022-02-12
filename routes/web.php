@@ -27,8 +27,8 @@ Route::get('/masuk-google', [UserController::class,'google'])->name('masuk_googl
 Route::get('/auth/google/callback', [UserController::class,'handleProviderGoogle']);
 
 /* Midtrans Routes */
-Route::get('payment/berhasil', [UserCheckout::class, 'midtransCallback' ]); //Get gunanya untuk ketika akan bayar melalui e-wallet
-Route::post('payment/berhasil', [UserCheckout::class, 'midtransCallback' ]); //Post gunanya untuk ketika akan bayar melalui minimarket atau TF bank via ATM
+Route::get('payment/success', [UserCheckout::class, 'midtransCallback' ]); //Get gunanya untuk ketika akan bayar melalui e-wallet
+Route::post('payment/success', [UserCheckout::class, 'midtransCallback' ]); //Post gunanya untuk ketika akan bayar melalui minimarket atau TF bank via ATM
 
 /* Auth Middleware Routes */
 Route::middleware(['auth'])->group(function () {

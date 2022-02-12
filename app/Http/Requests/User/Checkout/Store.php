@@ -29,7 +29,7 @@ class Store extends FormRequest
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,'.Auth::id().',id',
             'occupation' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => 'required|string|digits_between:12,16',
             'address' => 'required|string',
             // 'card_number' => 'required|numeric|digits_between:8,16',
             // 'expired' => 'required|date|date_format:Y-m|after_or_equal:'.$expValidation,

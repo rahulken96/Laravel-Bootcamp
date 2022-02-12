@@ -9,6 +9,7 @@ use App\Models\Camp;
 use App\Models\Checkout;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Env;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -76,18 +77,18 @@ class CheckoutController extends Controller
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->occupation = $data['occupation'];
+        $user->phone = $data['phone'];
+        $user->address = $data['address'];
         $user->save();
 
         // update / tambah data checkout
-        // $checkout = Checkout::create($data);
-        $checkout = Checkout::updateOrCreate($data);
-
-        // snap Midtrans
-        $this->SnapMidtrans($checkout);
+        $checkout = Checkout::create($data);
+        $this->getSnapRedirect($checkout);
+        // $checkout = Checkout::updateOrCreate($data);
 
         // ngirim email
         $userEmail = Auth::user()->email;
-        Mail::to($userEmail)->send(new AfterCheckout($checkout));
+        // Mail::to($userEmail)->send(new AfterCheckout($checkout));
 
         return redirect(route('checkout_sukses'));
     }
@@ -150,9 +151,9 @@ class CheckoutController extends Controller
     /**
      * Midtrans handler
      */
-    public function getSnapMidtransAttribute(Checkout $checkout)
+    public function getSnapRedirect(Checkout $checkout)
     {
-        $orderId = $checkout->id . '-' . Str::random(5);
+        $orderId = $checkout->id.'-'.Str::random(5);
         $checkout->midtrans_booking_code = $orderId;
 
         // Request #1
@@ -162,7 +163,7 @@ class CheckoutController extends Controller
         ];
 
         // Request #2
-        $item_details = [
+        $item_details[] = [
             "id" => $orderId,
             "price" => $checkout->Camp->price,
             "quantity" => 1,
@@ -174,12 +175,11 @@ class CheckoutController extends Controller
         $userData = [
             "first_name" => $checkout->User->name,
             "last_name" => "",
-            "email" => $checkout->User->email,
-            "phone" => $checkout->User->phone,
             "address" => $checkout->User->address,
             "city" => "",
             "postal_code" => "",
-            "country_code" => "ID"
+            "phone" => $checkout->User->phone,
+            "country_code" => "IDN"
         ];
 
         // Request #3
@@ -201,20 +201,20 @@ class CheckoutController extends Controller
 
         try {
             // Mendapatkan Snap Midtrans Payement Page URI
-            $paymentUrl = \Midtrans\Snap::createTransaction($params)->redirect_url;
+            $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
             $checkout->midtrans_url = $paymentUrl;
             $checkout->save();
 
             return $paymentUrl;
         } catch (Exception $e) {
-            return false;
+            return $e->getMessage();
         }
 
     }
 
     public function midtransCallback(Request $request)
     {
-        $notif = new Midtrans\Notification();
+        $notif = $request->method() == 'POST' ? new \Midtrans\Notification() : \Midtrans\Transaction::status($request->order_id);
 
         $transaction_status = $notif->transaction_status;
         $fraud = $notif->fraud_status;
@@ -225,42 +225,42 @@ class CheckoutController extends Controller
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'challenge'
-                $checkout->payment_status = 'Pending';
+                $checkout->payment_status = 'Men';
             }
             else if ($fraud == 'accept') {
                 // TODO Set payment status in merchant's database to 'success'
-                $checkout->payment_status = 'Telah Dibayar';
+                $checkout->payment_status = 'BaZy';
             }
         }
         else if ($transaction_status == 'cancel') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'Gagal';
+                $checkout->payment_status = 'sad';
             }
             else if ($fraud == 'accept') {
                 // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'Gagal';
+                $checkout->payment_status = 'hh';
             }
         }
         else if ($transaction_status == 'deny') {
             // TODO Set payment status in merchant's database to 'failure'
-            $checkout->payment_status = 'Proses Ditolak';
+            $checkout->payment_status = 'jkl';
         }
         else if ($transaction_status == 'settlement') {
             // TODO set payment status in merchant's database to 'Settlement'
-            $checkout->payment_status = 'Telah Dibayar';
+            $checkout->payment_status = 'tu';
         }
         else if ($transaction_status == 'pending') {
             // TODO set payment status in merchant's database to 'Pending'
-            $checkout->payment_status = 'Pending';
+            $checkout->payment_status = '96';
         }
         else if ($transaction_status == 'expire') {
             // TODO set payment status in merchant's database to 'expire'
-            $checkout->payment_status = 'Telah Kedaluwarsa (expired)';
+            $checkout->payment_status = 'tgyj';
         }
 
         $checkout->save();
-        return redirect(route('checkout_sukses'));
+        return view('checkout.success');
     }
 
 }
