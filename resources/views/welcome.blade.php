@@ -12,17 +12,17 @@
                 <div class="row">
                     <div class="col-lg-6 col-12 copywriting">
                         <p class="story">
-                            LEARN FROM EXPERT
+                            BELAJAR DARI AHILINYA !!
                         </p>
                         <h1 class="header">
-                            Start Your <span class="text-purple">Developer <br> Journey</span> Today
+                            Mulai Perjalanan <span class="text-purple">Developer Kamu</span> <br> Hari ini.
                         </h1>
                         <p class="support">
-                            Our bootcamp is helping junior developers who <br> are really passionate in the programming.
+                            Bootcamp kami membantu developer junior yang <br> benar-benar bersemangat dalam pemrograman.
                         </p>
                         <p class="cta">
-                            <a href="#" class="btn btn-master btn-primary">
-                                Get Started
+                            <a href="#story" class="btn btn-master btn-primary">
+                                Ayo Mulai
                             </a>
                         </p>
                     </div>
@@ -47,10 +47,10 @@
         <div class="row text-center pb-70">
             <div class="col-lg-12 col-12 header-wrap">
                 <p class="story">
-                    OUR SUPER BENEFITS
+                    MANFAAT SUPER KAMI
                 </p>
                 <h2 class="primary-header">
-                    Learn Faster & Better
+                    Belajar Lebih Cepat & Lebih Baik
                 </h2>
             </div>
         </div>
@@ -59,10 +59,10 @@
                 <div class="item-benefit">
                     <img src="{{ asset('assets/images/ic_globe.png') }}" class="icon" alt="">
                     <h3 class="title">
-                        Diversity
+                        Perbedaan
                     </h3>
                     <p class="support">
-                        Learn from anyone around the <br> world and get a new skills
+                        Belajar dari siapa pun di seluruh <br> Indonesia dan dapatkan keterampilan baru
                     </p>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                         A.I Guideline
                     </h3>
                     <p class="support">
-                        Lara will help you to choose <br> which path that suitable for you
+                        Lara akan membantu Anda memilih <br> jalur mana yang cocok untuk Anda
                     </p>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         1-1 Mentoring
                     </h3>
                     <p class="support">
-                        We will ensure that you will get <br> what you really do need
+                        Kami akan memastikan bahwa Anda akan mendapatkan <br> apa yang benar-benar Anda butuhkan
                     </p>
                 </div>
             </div>
@@ -92,10 +92,10 @@
                 <div class="item-benefit">
                     <img src="{{ asset('assets/images/ic_globe-3.png') }}" class="icon" alt="">
                     <h3 class="title">
-                        Future Job
+                        Pekerjaan Masa Depan
                     </h3>
                     <p class="support">
-                        Get your dream job in your dream <br> company together with us
+                        Dapatkan pekerjaan impian Anda di perusahaan <br> impian Anda bersama kami
                     </p>
                 </div>
             </div>
@@ -103,25 +103,25 @@
     </div>
 </section>
 
-<section class="steps">
+<section class="steps" id="story">
     <div class="container">
         <div class="row item-step pb-70">
             <div class="col-lg-6 col-12 text-center">
                 <img src="{{ asset('assets/images/step1.png') }}" class="cover" alt="">
             </div>
             <div class="col-lg-6 col-12 text-left copywriting">
-                <p class="story">
-                    BETTER CAREER
+                <p class="story" >
+                    KARIR LEBIH BAIK
                 </p>
                 <h2 class="primary-header">
-                    Prepare The Journey
+                    Persiapkan Perjalanan
                 </h2>
                 <p class="support">
-                    Learn from anyone around the <br> world and get a new skills
+                    Belajar dari siapa saja di seluruh <br> dunia dan dapatkan keterampilan baru
                 </p>
                 <p class="mt-5">
                     <a href="#" class="btn btn-master btn-secondary me-3">
-                        Learn More
+                        Belajarlah lebih lanjut
                     </a>
                 </p>
             </div>
@@ -129,17 +129,17 @@
         <div class="row item-step pb-70">
             <div class="col-lg-6 col-12 text-left copywriting pl-150">
                 <p class="story">
-                    STUDY HARDER
+                    BELAJAR LEBIH GIAT
                 </p>
                 <h2 class="primary-header">
-                    Finish The Project
+                    Selesaikan Proyek
                 </h2>
                 <p class="support">
-                    Each of you will be joining the private group and also <br> working together with team members on project
+                    Masing-masing dari Anda akan bergabung dengan grup pribadi dan juga <br> bekerja sama dengan anggota tim dalam proyek
                 </p>
                 <p class="mt-5">
                     <a href="#" class="btn btn-master btn-secondary me-3">
-                        View Demo
+                        Lihat Demo
                     </a>
                 </p>
             </div>
@@ -154,17 +154,17 @@
             </div>
             <div class="col-lg-6 col-12 text-left copywriting">
                 <p class="story">
-                    END GAME
+                    " AKHIR PERMAINAN "
                 </p>
                 <h2 class="primary-header">
-                    Big Demo Day
+                    Hari Demo Besar
                 </h2>
                 <p class="support">
-                    Learn how to speaking in public to demonstrate your <br> final project and receive the important feedbacks
+                    belajar cara berbicara di depan umum untuk mendemonstrasikan <br> tugas akhir Anda dan menerima masukan penting
                 </p>
                 <p class="mt-5">
                     <a href="#" class="btn btn-master btn-secondary me-3">
-                        Showcase
+                        Pameran
                     </a>
                 </p>
             </div>

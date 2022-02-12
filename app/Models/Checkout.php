@@ -14,10 +14,9 @@ class Checkout extends Model
     protected $fillable = [
         'user_id',
         'camp_id',
-        'card_number',
-        'expired',
-        'cvc',
-        'is_paid'
+        'payment_status',
+        'midtrans_url',
+        'midtrans_booking_code'
     ];
 
     /**
@@ -39,15 +38,5 @@ class Checkout extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    // public function setExpiredAttribut($value)
-    // {
-    //     $this->attributes['expired'] = date('Y-m-t', strtotime($value));
-    // }
-
-    // public function setCVCAttribut($value)
-    // {
-    //     $this->attributes['cvc']->skip($value)->take(3)->get();
-    // }
 
 }

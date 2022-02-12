@@ -67,35 +67,24 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Pekerjaan</label>
-                                <input name="occupation" type="text {{ $errors->has('occupation') ? 'is-invalid' : '' }}" class="form-control" value="{{ old('occupation') ?: Auth::user()->occupation }}">
+                                <input name="occupation" type="text" class="form-control {{ $errors->has('occupation') ? 'is-invalid' : '' }}" value="{{ old('occupation') ?: Auth::user()->occupation }}">
                                 @if ($errors->has('occupation'))
                                     <p class="text-danger">{{$errors->first('occupation')}}</p>
                                 @endif
                             </div>
                             <div class="mb-4">
-                                <label class="form-label">Nomor Kartu</label>
-                                <input name="card_number" type="text" class="form-control {{ $errors->has('card_number') ? 'is-invalid' : '' }}" placeholder="8 - 16 digit angka" value="{{ old('card_number') ?: '' }}">
-                                @if ($errors->has('card_number'))
-                                    <p class="text-danger">{{$errors->first('card_number')}}</p>
+                                <label class="form-label">Alamat</label>
+                                <input name="address" type="text" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" value="{{ old('phone') ?: Auth::user()->address }}" placeholder="Masukkan Alamat">
+                                @if ($errors->has('address'))
+                                    <p class="text-danger">{{$errors->first('address')}}</p>
                                 @endif
                             </div>
-                            <div class="mb-5">
-                                <div class="row">
-                                    <div class="col-lg-7 col-12">
-                                        <label class="form-label">Kedaluwarsa (expired)</label>
-                                        <input name="expired" type="month" class="form-control {{ $errors->has('expired') ? 'is-invalid' : '' }} " placeholder="Januari-2022" value="{{ old('expired') ?: '' }}">
-                                @if ($errors->has('expired'))
-                                    <p class="text-danger">{{$errors->first('expired')}}</p>
+                            <div class="mb-4">
+                                <label class="form-label">Telp / No HP</label>
+                                <input name="phone" type="tel" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" value="{{ old('phone') ?: Auth::user()->phone }}" placeholder="Masukkan Telp">
+                                @if ($errors->has('phone'))
+                                    <p class="text-danger">{{$errors->first('phone')}}</p>
                                 @endif
-                                    </div>
-                                    <div class="col-lg-5 col-12">
-                                        <label class="form-label">CVC</label>
-                                        <input name="cvc" type="text" class="form-control {{ $errors->has('cvc') ? 'is-invalid' : '' }}" placeholder="3 Digit Angka" value="{{ old('cvc') ?: '' }}">
-                                @if ($errors->has('cvc'))
-                                    <p class="text-danger">{{$errors->first('cvc')}}</p>
-                                @endif
-                                    </div>
-                                </div>
                             </div>
                             <button type="submit" class="w-100 btn btn-primary">Bayar Sekarang</button>
                             <p class="text-center subheader mt-4">

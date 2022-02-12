@@ -1,12 +1,14 @@
 @component('mail::message')
 # Transaksi Telah Dikonfirmasi !
 
-The body of your message.
+Hi, {{$checkout->User->name}}.
+Transaksi kamu telah kami konfirmasi, sekarang kamu bisa menikmati
+keuntungan dari Camp {{$checkout->Camp->title}}.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => route('user.dashboard')])
+Dashboard Ku
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Terimakasih,<br>
+Laracamp Team
 @endcomponent

@@ -10,5 +10,6 @@ Dashboard Ku
 @endcomponent
 
 Terimakasih,<br>
-{{ config('app.name') }}
+Laracamp Team
+{{-- {{ config('app.name') }} --}}
 @endcomponent

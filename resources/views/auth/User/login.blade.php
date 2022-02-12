@@ -14,7 +14,7 @@
         <img src="{{ asset('assets/images/banner.png') }}" alt="">
     </div>
     <div class="right">
-        <img src="#" class="logo" alt="LARACAMP">
+        <img src="{{ asset('assets/images/logo_laracamp.png') }}" alt="LARACAMP" title="Coding icons created by Kiranshastry - Flaticon" style="max-height: 60%">
         <h1 class="header-third">
             Mulai Hari Ini !
         </h1>

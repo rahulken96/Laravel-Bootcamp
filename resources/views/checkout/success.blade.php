@@ -8,7 +8,7 @@
     @auth()
         <div class="user-logged nav-item">
             {{ Auth::user()->name }}
-            <img src="{{Auth::user()->image}}" class="user-photo" alt="">
+            <img src="{{Auth::user()->image}}" class="user-photo" alt="" style="border-radius: 50%">
         </div>
     @endauth
 @endsection
@@ -27,8 +27,11 @@
                 <h2 class="primary-header ">
                     Berhasil Checkout
                 </h2>
+                <p >
+                    Silahkan menuju ke halaman dashboard dan lakukan pembayaran.
+                </p>
                 <a href="{{ route('user.dashboard') }}" class="btn btn-primary mt-3">
-                    My Dashboard
+                    Dashboard Ku
                 </a>
             </div>
         </div>
