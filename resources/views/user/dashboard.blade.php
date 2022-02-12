@@ -38,10 +38,11 @@
                             <strong>Rp <?= number_format($ch->Camp->price,2,',','.') ?></strong>
                         </td>
                         <td>
-                            @if ($ch->is_paid)
-                            <strong class="text-green">Sudah Bayar</strong>
-                            @else
-                            <strong>Mengunggu Pembayaran</strong>
+                            <strong >{{ $ch->payment_status }}</strong>
+                        </td>
+                        <td>
+                            @if ($ch->payment_status == 'Menunggu Pembayaran')
+                                <a href="{{$ch->midtrans_rul}}" class="btn btn-primary">Bayar Disini</a>
                             @endif
                         </td>
                         <td>

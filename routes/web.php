@@ -23,12 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('welcome'); })->name('menu_utama');
 
 /* Socialite Routes (Google)*/
-Route::get('/masuk-google', [UserController::class,'google'])->name('masuk_google');
-Route::get('/auth/google/callback', [UserController::class,'handleProviderGoogle']);
+Route::get('masuk-google', [UserController::class,'google'])->name('masuk_google');
+Route::get('auth/google/callback', [UserController::class,'handleProviderGoogle']);
 
 /* Midtrans Routes */
 Route::get('payment/success', [UserCheckout::class, 'midtransCallback' ]); //Get gunanya untuk ketika akan bayar melalui e-wallet
-Route::post('payment/success', [UserCheckout::class, 'midtransCallback' ]); //Post gunanya untuk ketika akan bayar melalui minimarket atau TF bank via ATM
+Route::post('payment/success', [UserChecksdout::class, 'midtransCallback' ]); //Post gunanya untuk ketika akan bayar melalui minimarket atau TF bank via ATM
 
 /* Auth Middleware Routes */
 Route::middleware(['auth'])->group(function () {
@@ -38,8 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('checkout/{camp}', [UserCheckout::class, 'store'])->name('selesai_checkout')->middleware('user.role:user');
 
     // Dashboard
-    Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
-    Route::get('/dashboard/checkout/tagihan/{checkout}', [UserCheckout::class, 'tagihan'] )->name('tagihan_checkout');
+    Route::get('dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
+    Route::get('dashboard/checkout/tagihan/{checkout}', [UserCheckout::class, 'tagihan'] )->name('tagihan_checkout');
 
     /* User Dashboard Routes */
     Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('user.role:user')->group(function(){

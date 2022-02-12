@@ -22,7 +22,6 @@
                                     <th class="text-md-center">Harga</th>
                                     <th class="text-md-center">Data Pendaftaran</th>
                                     <th class="text-md-center">Pembayaran</th>
-                                    <th class="text-md-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,19 +32,7 @@
                                         <td>Rp <?= number_format($ca->Camp->price, '2', ',', '.') ?></td>
                                         <td><?= date('D, d F Y - H:i', strtotime($ca->created_at)) ?></td>
                                         <td>
-                                            @if ($ca->is_paid)
-                                                <strong class="badge bg-success">Sudah Bayar</strong>
-                                            @else
-                                                <strong class="badge bg-warning">Menunggu Pembayaran</strong>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if (!$ca->is_paid)
-                                                <form action="{{route('admin.admin_checkout',$ca->id)}}" method="post">
-                                                    @csrf
-                                                    <button class="btn btn-primary btn-sm">Konfirmasi Pembayaran</button>
-                                                </form>
-                                            @endif
+                                            <strong>{{$ca->payment_status}}</strong>
                                         </td>
                                     </tr>
                                 @empty

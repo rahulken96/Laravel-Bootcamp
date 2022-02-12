@@ -214,7 +214,7 @@ class CheckoutController extends Controller
 
     public function midtransCallback(Request $request)
     {
-        $notif = $request->method() == 'POST' ? new \Midtrans\Notification() : \Midtrans\Transaction::status($request->order_id);
+        $notif = ($request->method() == 'POST') ? new \Midtrans\Notification() : \Midtrans\Transaction::status($request->order_id);
 
         $transaction_status = $notif->transaction_status;
         $fraud = $notif->fraud_status;
@@ -225,38 +225,38 @@ class CheckoutController extends Controller
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'challenge'
-                $checkout->payment_status = 'Men';
+                $checkout->payment_status = 'Menunggu Pembayaran';
             }
             else if ($fraud == 'accept') {
                 // TODO Set payment status in merchant's database to 'success'
-                $checkout->payment_status = 'BaZy';
+                $checkout->payment_status = 'Telah Dibayar';
             }
         }
         else if ($transaction_status == 'cancel') {
             if ($fraud == 'challenge') {
                 // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'sad';
+                $checkout->payment_status = 'Gagal';
             }
             else if ($fraud == 'accept') {
                 // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'hh';
+                $checkout->payment_status = 'Gagal';
             }
         }
         else if ($transaction_status == 'deny') {
             // TODO Set payment status in merchant's database to 'failure'
-            $checkout->payment_status = 'jkl';
+            $checkout->payment_status = 'Gagal';
         }
         else if ($transaction_status == 'settlement') {
             // TODO set payment status in merchant's database to 'Settlement'
-            $checkout->payment_status = 'tu';
+            $checkout->payment_status = 'Telah Dibayar';
         }
         else if ($transaction_status == 'pending') {
             // TODO set payment status in merchant's database to 'Pending'
-            $checkout->payment_status = '96';
+            $checkout->payment_status = 'Menunggu Pembayaran';
         }
         else if ($transaction_status == 'expire') {
             // TODO set payment status in merchant's database to 'expire'
-            $checkout->payment_status = 'tgyj';
+            $checkout->payment_status = 'Gagal';
         }
 
         $checkout->save();
